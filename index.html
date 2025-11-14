@@ -278,7 +278,8 @@
                 setInterval(nextImage, interval);
             });
 
-            // 3D Carousel: Auto-rotate services every 3 seconds
+            // 3D Carousel: Auto-rotate services every 3 seconds (Desktop)
+            // Horizontal scroll carousel on mobile
             document.addEventListener('DOMContentLoaded', function () {
                 const carousel = document.getElementById('carousel3d');
                 const items = document.querySelectorAll('.carousel-3d-item');
@@ -287,22 +288,31 @@
                 const totalItems = items.length;
                 const rotationAngle = 360 / totalItems;
                 let autoRotateInterval;
+                
+                // Check if mobile
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
                 function updateCarousel(index) {
-                    // Remove all classes
-                    items.forEach(item => {
-                        item.classList.remove('active', 'prev', 'next');
-                    });
-
-                    // Add active class to current item
-                    items[index].classList.add('active');
-
-                    // Add prev and next classes for 3D effect
-                    items[(index - 1 + totalItems) % totalItems].classList.add('prev');
-                    items[(index + 1) % totalItems].classList.add('next');
-
-                    // Update carousel rotation
-                    carousel.style.transform = `rotateY(${-index * rotationAngle}deg)`;
+                    if (isMobile) {
+                        // Mobile: scroll to item horizontally
+                        items.forEach((item, i) => {
+                            item.classList.remove('active', 'prev', 'next');
+                        });
+                        items[index].classList.add('active');
+                        
+                        // Scroll to item (optional smooth scroll)
+                        const itemWidth = items[index].offsetWidth + 16; // 16px is gap
+                        carousel.scrollLeft = index * itemWidth;
+                    } else {
+                        // Desktop: 3D rotation
+                        items.forEach(item => {
+                            item.classList.remove('active', 'prev', 'next');
+                        });
+                        items[index].classList.add('active');
+                        items[(index - 1 + totalItems) % totalItems].classList.add('prev');
+                        items[(index + 1) % totalItems].classList.add('next');
+                        carousel.style.transform = `rotateY(${-index * rotationAngle}deg)`;
+                    }
 
                     // Update dot indicators
                     dots.forEach((dot, i) => {
@@ -320,9 +330,11 @@
                     updateCarousel(currentIndex);
                 }
 
-                // Auto-rotate every 3 seconds
+                // Auto-rotate every 3 seconds (Desktop only)
                 function startAutoRotate() {
-                    autoRotateInterval = setInterval(nextSlide, 3000);
+                    if (!isMobile) {
+                        autoRotateInterval = setInterval(nextSlide, 3000);
+                    }
                 }
 
                 function stopAutoRotate() {
@@ -339,14 +351,25 @@
                     });
                 });
 
-                // Pause on hover, resume on leave
-                carousel.addEventListener('mouseenter', stopAutoRotate);
-                carousel.addEventListener('mouseleave', startAutoRotate);
+                // Pause on hover, resume on leave (Desktop only)
+                if (!isMobile) {
+                    carousel.addEventListener('mouseenter', stopAutoRotate);
+                    carousel.addEventListener('mouseleave', startAutoRotate);
+                }
 
                 // Initialize
                 updateCarousel(0);
                 startAutoRotate();
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
+                    if (newIsMobile !== isMobile) {
+                        location.reload(); // Reload to switch between modes
+                    }
+                });
             });
+        </script>
         </script>
 
         <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>

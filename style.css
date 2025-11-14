@@ -395,24 +395,43 @@ h1, h2, h3 {
 /* Responsive 3D Carousel */
 @media (max-width: 768px) {
     .carousel-3d-container {
-        height: 500px;
+        perspective: none;
+        height: auto;
+        padding: 20px 0;
+    }
+    
+    .carousel-3d {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding: 0 16px 16px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
     }
     
     .carousel-3d-item {
-        transform: rotateY(calc(var(--index) * 90deg)) translateZ(250px);
+        position: static;
+        width: 100%;
+        min-width: 280px;
+        height: auto;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        transition: none;
+        flex-shrink: 0;
     }
     
-    .carousel-3d-item.prev {
-        transform: rotateY(calc(var(--index) * 90deg - 90deg)) translateZ(250px) scale(0.75);
-    }
-    
+    .carousel-3d-item.active,
+    .carousel-3d-item.prev,
     .carousel-3d-item.next {
-        transform: rotateY(calc(var(--index) * 90deg + 90deg)) translateZ(250px) scale(0.75);
+        opacity: 1 !important;
+        transform: none !important;
     }
     
     .service-card-3d {
-        max-width: 300px;
-        padding: 30px 20px;
+        max-width: 100%;
+        padding: 24px 16px;
+        height: auto;
     }
     
     .service-icon {
@@ -429,13 +448,17 @@ h1, h2, h3 {
 }
 
 @media (max-width: 480px) {
-    .carousel-3d-container {
-        height: 400px;
+    .carousel-3d {
+        gap: 12px;
+        padding: 0 12px 12px;
+    }
+    
+    .carousel-3d-item {
+        min-width: 260px;
     }
     
     .service-card-3d {
-        max-width: 100%;
-        padding: 20px 15px;
+        padding: 20px 12px;
     }
     
     .service-icon {
@@ -449,6 +472,10 @@ h1, h2, h3 {
     .service-card-3d p {
         font-size: 0.85rem;
         line-height: 1.5;
+    }
+    
+    .carousel-dots {
+        display: none;
     }
 }
 
