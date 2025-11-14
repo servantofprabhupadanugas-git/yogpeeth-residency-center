@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yogpeeth logo">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2d7a63"/>
+      <stop offset="100%" stop-color="#3aa17d"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="200" fill="none"/>
+  <g transform="translate(30,20)">
+    <!-- Simple lotus-like mark -->
+    <path d="M90 40 C110 10, 130 10, 150 40 C170 70, 150 100, 120 100 C90 100, 70 70, 90 40 Z" fill="url(#g1)" opacity="0.95"/>
+    <path d="M150 40 C170 10, 190 10, 210 40 C230 70, 210 100, 180 100 C150 100, 130 70, 150 40 Z" fill="url(#g1)" opacity="0.9" transform="translate(-40,0)"/>
+    <!-- Text -->
+    <text x="260" y="80" font-family="Segoe UI, Roboto, Arial" font-size="36" fill="#0b3f2e">Yogpeeth</text>
+    <text x="260" y="115" font-family="Segoe UI, Roboto, Arial" font-size="18" fill="#11664f">Residential Center</text>
+  </g>
+</svg>

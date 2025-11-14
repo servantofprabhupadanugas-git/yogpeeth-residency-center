@@ -1,0 +1,38 @@
+name: Deploy to Firebase Hosting on Push
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow whenever a push occurs on the 'main' branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+      
+      # Optional: If you had any build steps (like bundling JS or compiling Sass), they would go here.
+      # Since this is pure HTML/CSS/JS, we skip the traditional 'build' step.
+      # - name: 🛠️ Setup Node.js (if needed)
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+
+      # - name: 🏗️ Install Dependencies (if any)
+      #   run: npm install
+
+      # - name: 🚧 Build Static Files
+      #   run: npm run build # Or whatever your build command is
+
+      - name: 🚀 Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0 # Official Firebase Action
+        with:
+          # Your Firebase project ID (this is usually auto-detected from your .firebaserc file)
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_YOGPEETH_RESIDENCY_CENTER }}'
+          channelId: live # Deploy directly to your site's live URL
+          projectId: yogpeeth-residency # IMPORTANT: Replace with your actual Firebase Project ID
+          # If your static files are not in the root directory, specify the location:
+          # entryPoint: /

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogpeeth Residential Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><img src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo"></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="auth-button" class="login-btn">Login</button>
+    </nav>
+
+    <main id="home">
+        <!-- Hero: Radha-Madhava appearance image with animated logo and darkening overlay -->
+        <section class="hero" id="hero">
+            <img class="hero-image" src="assets/images/radha_madhava_prabhupada_appearance_day_pixel_enhanced.jpg" alt="Srimati Radha Rani Ji">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <!-- Large transparent logo centered over image -->
+            <img class="hero-logo" src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo">
+        </section>
+
+        <section id="services" class="section-padding">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Yoga & Meditation</h3>
+                    <p>Daily sessions guided by expert teachers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ayurveda Treatment</h3>
+                    <p>Personalized wellness programs and therapies.</p>
+                </div>
+                </div>
+        </section>
+
+        <section id="rules-snippet" class="section-padding rules-bg">
+            <h2>Residential Rules</h2>
+            <p>A harmonious stay requires adherence to our core principles.</p>
+            <a href="rules.html" class="cta-button">View All Rules</a>
+        </section>
+    </main>
+    
+    <footer id="contact" class="footer-bg">
+        <h2>Contact Us</h2>
+        <p>Email: contact@baceyogpeeth.org</p>
+        <p>Phone: +91 98765 43210</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/company/baceyogpeeth" target="_blank">LinkedIn</a> | 
+            <a href="https://instagram.com/baceyogpeeth" target="_blank">Instagram</a> | 
+            <a href="https://youtube.com/baceyogpeeth" target="_blank">YouTube</a>
+        </div>
+    </footer>
+
+        <script>
+            // Animate hero: add overlay and fade-in logo shortly after page load
+            document.addEventListener('DOMContentLoaded', function () {
+                const hero = document.getElementById('hero');
+                if (!hero) return;
+                // small staged delay to let image settle, then reveal overlay + logo
+                setTimeout(() => {
+                    hero.classList.add('show-overlay');
+                }, 500);
+            });
+        </script>
+
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
