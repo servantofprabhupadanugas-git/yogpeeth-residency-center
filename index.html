@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yogpeeth Residential Center</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CDN for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -21,9 +23,16 @@
     </nav>
 
     <main id="home">
-        <!-- Hero: Radha-Madhava appearance image with animated logo and darkening overlay -->
+        <!-- Hero: Cycling Radha-Madhava images with animated logo and darkening overlay -->
         <section class="hero" id="hero">
-            <img class="hero-image" src="assets/images/radha_madhava_prabhupada_appearance_day_pixel_enhanced.jpg" alt="Srimati Radha Rani Ji">
+            <!-- Image carousel: cycles through Radha-Madhava images with fade effect every 5 seconds -->
+            <div class="hero-carousel">
+                <img class="hero-image fade-in" data-index="0" src="assets/images/radha_madhava_prabhupada_appearance_day_pixel_enhanced.jpg" alt="Radha Madhava - Prabhupada Appearance Day">
+                <img class="hero-image" data-index="1" src="assets/images/radha_madhava_radhashtami.jpg" alt="Radha Madhava - Radhashtami">
+                <img class="hero-image" data-index="2" src="assets/images/radha_madhava_nityanand_trayodashi.jpg" alt="Radha Madhava - Nityanand Trayodashi">
+                <img class="hero-image" data-index="3" src="assets/images/radha_madhava_gaur_purnima.png" alt="Radha Madhava - Gaur Purnima">
+                <img class="hero-image" data-index="4" src="assets/images/ptradhamadhava.jpg" alt="Radha Madhava">
+            </div>
             <div class="hero-overlay" aria-hidden="true"></div>
             <!-- Large transparent logo centered over image -->
             <img class="hero-logo" src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo">
@@ -31,45 +40,289 @@
 
         <section id="services" class="section-padding">
             <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>Yoga & Meditation</h3>
-                    <p>Daily sessions guided by expert teachers.</p>
+            <p class="services-intro">Experience spiritual growth and wellness at Yogpeeth Residential Center</p>
+            
+            <!-- 3D Carousel Container -->
+            <div class="carousel-3d-container">
+                <div class="carousel-3d" id="carousel3d">
+                    <div class="carousel-3d-item" style="--index: 0">
+                        <div class="service-card-3d">
+                            <div class="service-icon">🧘</div>
+                            <h3>Yoga & Meditation Classes</h3>
+                            <p>Daily guided sessions for physical fitness, mental clarity, and spiritual balance. Learn authentic yoga practices from experienced teachers.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-3d-item" style="--index: 1">
+                        <div class="service-card-3d">
+                            <div class="service-icon">🎵</div>
+                            <h3>Bhakti & Kirtan Programs</h3>
+                            <p>Devotional chanting and singing to connect with the divine. Experience the transformative power of sacred music and devotion.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-3d-item" style="--index: 2">
+                        <div class="service-card-3d">
+                            <div class="service-icon">🌿</div>
+                            <h3>Ayurveda & Wellness</h3>
+                            <p>Personalized Ayurvedic treatments and consultations for holistic health. Balance your body, mind, and spirit naturally.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-3d-item" style="--index: 3">
+                        <div class="service-card-3d">
+                            <div class="service-icon">💭</div>
+                            <h3>Spiritual Counseling</h3>
+                            <p>Guidance on spiritual development and Krishna consciousness. Find answers to life's deeper questions with our experienced mentors.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-3d-item" style="--index: 4">
+                        <div class="service-card-3d">
+                            <div class="service-icon">🍲</div>
+                            <h3>Delicious Prasadam</h3>
+                            <p>Nutritious, sattvic vegetarian cuisine blessed and offered to the divine. Nourish your body with pure, peaceful food.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-3d-item" style="--index: 5">
+                        <div class="service-card-3d">
+                            <div class="service-icon">📚</div>
+                            <h3>Vedic Studies</h3>
+                            <p>In-depth learning of Vedic scriptures and ancient wisdom. Explore the timeless knowledge of the Vedas and Bhagavad Gita.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Ayurveda Treatment</h3>
-                    <p>Personalized wellness programs and therapies.</p>
-                </div>
-                </div>
+            </div>
+
+            <!-- Carousel Navigation Dots -->
+            <div class="carousel-dots">
+                <button class="dot active" data-slide="0"></button>
+                <button class="dot" data-slide="1"></button>
+                <button class="dot" data-slide="2"></button>
+                <button class="dot" data-slide="3"></button>
+                <button class="dot" data-slide="4"></button>
+                <button class="dot" data-slide="5"></button>
+            </div>
         </section>
 
         <section id="rules-snippet" class="section-padding rules-bg">
             <h2>Residential Rules</h2>
             <p>A harmonious stay requires adherence to our core principles.</p>
+            
+            <!-- Key Rules Display -->
+            <div class="rules-highlight">
+                <div class="rule-item">
+                    <span class="rule-number">1</span>
+                    <div class="rule-content">
+                        <h4>Attend Morning Program</h4>
+                        <p>Be present for morning spiritual programs in time as scheduled.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-number">5</span>
+                    <div class="rule-content">
+                        <h4>Follow Four Regulative Principles</h4>
+                        <p>No meat eating, no intoxication, no illicit sex, and no gambling. Avoid outside eatables and entertainment.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-number">7</span>
+                    <div class="rule-content">
+                        <h4>Live in Harmony</h4>
+                        <p>Respect all residents, maintain a peaceful atmosphere with love and trust.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-number">8</span>
+                    <div class="rule-content">
+                        <h4>Enthusiastic Participation</h4>
+                        <p>Actively participate in all Yogpeeth activities and services with voluntary discipline.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-number">9</span>
+                    <div class="rule-content">
+                        <h4>Fill Sadhana Card</h4>
+                        <p>Maintain regular spiritual practice and report progress to your facilitator.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-number">17</span>
+                    <div class="rule-content">
+                        <h4>Dress Code</h4>
+                        <p>Wear dhoti-kurta in Yogpeeth for internal programs and elegant attire outside.</p>
+                    </div>
+                </div>
+            </div>
+
             <a href="rules.html" class="cta-button">View All Rules</a>
         </section>
     </main>
     
     <footer id="contact" class="footer-bg">
-        <h2>Contact Us</h2>
-        <p>Email: contact@baceyogpeeth.org</p>
-        <p>Phone: +91 98765 43210</p>
-        <div class="social-links">
-            <a href="https://linkedin.com/company/baceyogpeeth" target="_blank">LinkedIn</a> | 
-            <a href="https://instagram.com/baceyogpeeth" target="_blank">Instagram</a> | 
-            <a href="https://youtube.com/baceyogpeeth" target="_blank">YouTube</a>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div class="contact-detail">
+                        <p class="contact-label">Email</p>
+                        <p><a href="mailto:contact@baceyogpeeth.org">contact@baceyogpeeth.org</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <div class="contact-detail">
+                        <p class="contact-label">Phone</p>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div class="contact-detail">
+                        <p class="contact-label">Location</p>
+                        <p>Yogpeeth Residential Center, BACE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links-grid">
+                    <a href="https://linkedin.com/company/baceyogpeeth" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com/baceyogpeeth" target="_blank" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/baceyogpeeth" target="_blank" class="social-link" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://facebook.com/baceyogpeeth" target="_blank" class="social-link" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="rules.html">Rules</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yogpeeth Residential Center. All rights reserved.</p>
         </div>
     </footer>
 
         <script>
-            // Animate hero: add overlay and fade-in logo shortly after page load
+            // Image carousel: cycle through Radha-Madhava images with fade effect every 5 seconds
             document.addEventListener('DOMContentLoaded', function () {
                 const hero = document.getElementById('hero');
-                if (!hero) return;
-                // small staged delay to let image settle, then reveal overlay + logo
+                const images = document.querySelectorAll('.hero-image');
+                let currentIndex = 0;
+                const interval = 5000; // 5 seconds
+
+                // Show overlay and logo after initial load
                 setTimeout(() => {
                     hero.classList.add('show-overlay');
                 }, 500);
+
+                // Cycle through images
+                function nextImage() {
+                    // Remove fade-in from current image
+                    images[currentIndex].classList.remove('fade-in');
+                    
+                    // Move to next image
+                    currentIndex = (currentIndex + 1) % images.length;
+                    
+                    // Add fade-in to next image
+                    images[currentIndex].classList.add('fade-in');
+                }
+
+                // Start cycling after initial delay
+                setInterval(nextImage, interval);
+            });
+
+            // 3D Carousel: Auto-rotate services every 3 seconds
+            document.addEventListener('DOMContentLoaded', function () {
+                const carousel = document.getElementById('carousel3d');
+                const items = document.querySelectorAll('.carousel-3d-item');
+                const dots = document.querySelectorAll('.dot');
+                let currentIndex = 0;
+                const totalItems = items.length;
+                const rotationAngle = 360 / totalItems;
+                let autoRotateInterval;
+
+                function updateCarousel(index) {
+                    // Remove all classes
+                    items.forEach(item => {
+                        item.classList.remove('active', 'prev', 'next');
+                    });
+
+                    // Add active class to current item
+                    items[index].classList.add('active');
+
+                    // Add prev and next classes for 3D effect
+                    items[(index - 1 + totalItems) % totalItems].classList.add('prev');
+                    items[(index + 1) % totalItems].classList.add('next');
+
+                    // Update carousel rotation
+                    carousel.style.transform = `rotateY(${-index * rotationAngle}deg)`;
+
+                    // Update dot indicators
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalItems;
+                    updateCarousel(currentIndex);
+                }
+
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                    updateCarousel(currentIndex);
+                }
+
+                // Auto-rotate every 3 seconds
+                function startAutoRotate() {
+                    autoRotateInterval = setInterval(nextSlide, 3000);
+                }
+
+                function stopAutoRotate() {
+                    clearInterval(autoRotateInterval);
+                }
+
+                // Dot navigation
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel(currentIndex);
+                        stopAutoRotate();
+                        startAutoRotate();
+                    });
+                });
+
+                // Pause on hover, resume on leave
+                carousel.addEventListener('mouseenter', stopAutoRotate);
+                carousel.addEventListener('mouseleave', startAutoRotate);
+
+                // Initialize
+                updateCarousel(0);
+                startAutoRotate();
             });
         </script>
 
