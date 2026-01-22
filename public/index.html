@@ -7,21 +7,70 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome CDN for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo"><img src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo"></div>
-        <button class="menu-toggle" id="menuToggle">☰</button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="rules.html">Rules</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="auth-button" class="login-btn">Login</button>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <nav class="bg-green shadow-md ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-12 w-auto" src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo">
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#home" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">About</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Projects</a>
+                    <a href="activity.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Activity</a>
+                    <a href="live-darshan.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Live Darshan</a>
+                    <a href="yatras.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Yatras</a>
+                    
+                    <div class="relative group">
+                        <button class="flex items-center text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">
+                            More <span class="ml-1">▾</span>
+                        </button>
+                        <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg border rounded-md py-2 w-56 z-50">
+                            <a href="participate.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">How Can I Participate?</a>
+                            <a href="downloads.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Downloads</a>
+                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Gallery</a>
+                            <a href="jobs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Job Openings</a>
+                            <a href="rules.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Rules</a>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Contact Us</a>
+                    <button class="bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition">Login</button>
+                </div>
+
+                <div class="lg:hidden flex items-center">
+                    <button id="menuToggle" class="text-gray-700 focus:outline-none text-2xl">☰</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="navLinks" class="hidden lg:hidden bg-gray-50 border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">About</a>
+                <a href="projects.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Projects</a>
+                <a href="activity.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Activity</a>
+                <a href="live-darshan.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Live Darshan</a>
+                <a href="yatras.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Yatras</a>
+                <a href="rules.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Rules</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-orange-100 font-bold">Contact Us</a>
+                <div class="pt-4 pb-2">
+                    <button class="w-full bg-orange-600 text-white px-5 py-2 rounded-md">Login</button>
+                </div>
+            </div>
+        </div>
     </nav>
+
+   
 
     <main id="home">
         <!-- Hero: Cycling Radha-Madhava images with animated logo and darkening overlay -->
@@ -228,28 +277,32 @@
     </footer>
 
         <script>
-            // Mobile Menu Toggle
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
+            // 1. Toggle mobile menu on hamburger click
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevents the "click outside" listener from firing immediately
+                navLinks.classList.toggle('hidden');
             });
 
-            // Close menu when a link is clicked
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
+            // 2. Close menu when any mobile link is clicked
+            // We target all 'a' tags inside the mobile menu container
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.add('hidden');
                 });
             });
 
-            // Close menu when clicking outside
+            // 3. Close menu when clicking anywhere outside the navbar
             document.addEventListener('click', function(event) {
-                if (!event.target.closest('.navbar')) {
-                    navLinks.classList.remove('active');
+                const isClickInsideNavbar = event.target.closest('nav');
+                
+                // If the click is outside the nav and the menu is currently open (not hidden)
+                if (!isClickInsideNavbar && !navLinks.classList.contains('hidden')) {
+                    navLinks.classList.add('hidden');
                 }
             });
-
             // Image carousel: cycle through Radha-Madhava images with fade effect every 5 seconds
             document.addEventListener('DOMContentLoaded', function () {
                 const hero = document.getElementById('hero');
