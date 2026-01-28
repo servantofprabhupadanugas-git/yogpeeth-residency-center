@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Gallery - Yogpeeth Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 3D Gallery Engine */
+        .gallery-depth {
+            perspective: 1500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+
+        .gallery-item {
+            position: absolute;
+            width: 320px;
+            height: 450px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 3D Positioning Logic */
+        .gallery-item.prev {
+            transform: translateX(-250px) translateZ(-300px) rotateY(45deg);
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .gallery-item.active {
+            transform: translateX(0) translateZ(200px) rotateY(0deg);
+            opacity: 1;
+            z-index: 10;
+            border: 4px solid #f97316; /* Orange border for focus */
+        }
+
+        .gallery-item.next {
+            transform: translateX(250px) translateZ(-300px) rotateY(-45deg);
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .gallery-item.hidden {
+            transform: translateY(100px) translateZ(-500px);
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-cover: cover;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-white font-['Inter']">
+
+    <nav class="bg-green-600 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="logo-handwriting text-3xl text-white">Yogpeeth Center</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="index.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Home</a>
+                    <a href="projects.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Projects</a>
+                    <a href="activity.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Activity</a>
+                    <a href="gallery.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium border-b-2 border-white">Gallery</a>
+                    <a href="visit-yogpeeth.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Visit Us</a>
+                    <button class="bg-orange-600 px-5 py-2 rounded-full hover:bg-orange-700 transition">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-12">
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-bold logo-handwriting text-orange-400">Visual Darshan</h1>
+            <p class="text-gray-400 mt-2 italic">Click the sides to browse through our sacred moments</p>
+        </div>
+
+        <div class="gallery-depth">
+            <div class="gallery-container" id="gallery">
+                <div class="gallery-item"><img src="assets/images/radha_madhava_gaur_purnima.png" alt="Gaur Purnima"></div>
+                <div class="gallery-item"><img src="assets/images/ptradhamadhava.jpg" alt="Temple Darshan"></div>
+                <div class="gallery-item"><img src="assets/images/radha_madhava_radhashtami.jpg" alt="Radhashtami"></div>
+                <div class="gallery-item"><img src="assets/images/radha_madhava_nityanand_trayodashi.jpg" alt="Festival"></div>
+                <div class="gallery-item"><img src="assets/images/temple_event.jpg" alt="Youth Camp"></div>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-10 mt-10">
+            <button onclick="movePrev()" class="bg-zinc-800 hover:bg-orange-600 p-4 rounded-full transition-all group">
+                <i class="fas fa-chevron-left text-2xl group-hover:scale-125"></i>
+            </button>
+            <button onclick="moveNext()" class="bg-zinc-800 hover:bg-orange-600 p-4 rounded-full transition-all group">
+                <i class="fas fa-chevron-right text-2xl group-hover:scale-125"></i>
+            </button>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-black text-white py-12 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <span class="logo-handwriting text-3xl text-orange-500">Yogpeeth Center</span>
+                <p class="text-gray-500 mt-4">Capturing the beauty of devotion.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 uppercase tracking-widest text-sm">Get in Touch</h4>
+                <p class="text-gray-400">contact@baceyogpeeth.org</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 uppercase tracking-widest text-sm">Follow the Journey</h4>
+                <div class="flex justify-center md:justify-start gap-6 text-xl">
+                    <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-orange-500"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const items = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function updateGallery() {
+            items.forEach((item, index) => {
+                item.className = 'gallery-item hidden';
+                
+                if (index === currentIndex) {
+                    item.className = 'gallery-item active';
+                } else if (index === (currentIndex - 1 + items.length) % items.length) {
+                    item.className = 'gallery-item prev';
+                } else if (index === (currentIndex + 1) % items.length) {
+                    item.className = 'gallery-item next';
+                }
+            });
+        }
+
+        function moveNext() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateGallery();
+        }
+
+        function movePrev() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateGallery();
+        }
+
+        // Initialize
+        updateGallery();
+
+        // Optional: Auto-rotation
+        setInterval(moveNext, 5000);
+    </script>
+</body>
+</html>
