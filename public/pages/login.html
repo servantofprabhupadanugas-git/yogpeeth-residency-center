@@ -1,83 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Yogpeeth Residential Center</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Enhanced login page tweaks (complements style.css) */
-    body { background: linear-gradient(180deg, #f6fbf8 0%, #ffffff 25%); }
-    .auth-container { max-width:420px; margin:48px auto; padding:28px; background:#ffffff; border-radius:12px; box-shadow:0 10px 30px rgba(16,24,32,0.08); }
-    .auth-header { display:flex; align-items:center; gap:12px; margin-bottom:6px; }
-    .auth-logo { height:54px; }
-    .auth-title { font-size:1.25rem; margin:0; color:#133f2a; }
-    .auth-sub { color:#667680; font-size:0.95rem; margin-bottom:14px; }
-    .auth-field { width:100%; padding:12px; margin:8px 0; border:1px solid #e6ece6; border-radius:8px; font-size:1rem; }
-    .auth-actions { display:flex; gap:10px; margin-top:12px; }
-    .social-btn { width:100%; padding:10px; border-radius:8px; cursor:pointer; border: none; font-weight:600; }
-    .google { background:#db4437; color:#fff; }
-    .facebook { background:#4267B2; color:#fff; }
-    .primary { background:var(--primary-color); color:#fff; border: none; padding:12px 16px; border-radius:8px; }
-    .btn-secondary { background:transparent; border:1px solid #e1e7e1; color:#0b2f23; padding:10px 14px; border-radius:8px; }
-    .link { text-decoration:underline; cursor:pointer; color:var(--primary-color); }
-    .helper-row { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
-    .forgot { color:var(--primary-color); text-decoration:none; font-weight:600; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Yogpeeth Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root { --primary-green: #16a34a; --primary-orange: #ea580c; }
+        .logo-handwriting { font-family: 'Dancing Script', cursive; }
+        
+        body { background: #f9fafb; font-family: 'Inter', sans-serif; }
+
+        /* 3D Effect for Login Card */
+        .auth-container { 
+            max-width: 420px; 
+            margin: 60px auto; 
+            padding: 40px; 
+            background: #ffffff; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: perspective(1000px) rotateX(0deg);
+            transition: transform 0.3s ease;
+        }
+        .auth-container:hover {
+            transform: perspective(1000px) rotateX(2deg);
+        }
+
+        .auth-field { 
+            width: 100%; 
+            padding: 12px 16px; 
+            margin: 8px 0 20px 0; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 10px; 
+            transition: all 0.2s;
+        }
+        .auth-field:focus {
+            border-color: var(--primary-green);
+            ring: 2px;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+        }
+
+        .social-btn { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+            font-weight: 600; 
+            transition: opacity 0.2s;
+        }
+        .google { background: #fff; color: #374151; border: 1px solid #e5e7eb; }
+        .facebook { background: #1877F2; color: #fff; border: none; }
+        
+        .primary-btn { 
+            background: var(--primary-green); 
+            color: #fff; 
+            width: 100%; 
+            padding: 14px; 
+            border-radius: 10px; 
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .primary-btn:hover { background: #15803d; }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo"><img src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo"></div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-    </ul>
-  </nav>
 
-  <main>
-    <div class="auth-container">
-      <div class="auth-header">
-        <img class="auth-logo" src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo">
-        <div>
-          <h3 class="auth-title">Welcome back</h3>
-          <div class="auth-sub">Sign in to access your Yogpeeth account</div>
+<nav class="bg-green-600 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex-shrink-0 flex items-center">
+                <span class="logo-handwriting text-3xl text-white">Yogpeeth Center</span>
+            </div>
+
+            <div class="flex items-center lg:hidden">
+                <button id="menuToggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="./../index.html" class="text-white hover:text-orange-200 px-3 py-2">Home</a>
+                <a href="about.html" class="text-white hover:text-orange-200 px-3 py-2">About</a>
+                <a href="projects.html" class="text-white hover:text-orange-200 px-3 py-2">Projects</a>
+                <a href="activity.html" class="text-white hover:text-orange-200 px-3 py-2">Activity</a>
+                <a href="login.html" class="bg-orange-600 text-white px-5 py-2 rounded-full">Login</a>
+            </div>
         </div>
-      </div>
-
-      <label for="email">Email</label>
-      <input id="email" class="auth-field" type="email" placeholder="you@example.com">
-
-      <label for="password">Password</label>
-      <input id="password" class="auth-field" type="password" placeholder="Enter your password">
-
-      <div class="helper-row">
-        <label><input type="checkbox" id="remember"> Remember me</label>
-        <a class="forgot" href="#">Forgot?</a>
-      </div>
-
-      <div class="auth-actions" style="margin-top:16px">
-        <button id="sign-in" class="primary">Sign In</button>
-        <button id="sign-up" class="btn-secondary">Create account</button>
-      </div>
-
-      <hr style="margin:20px 0; border:none; border-top:1px solid #eef7ee">
-
-      <button id="google-signin" class="social-btn google" style="margin-bottom:8px">Continue with Google</button>
-      <button id="facebook-signin" class="social-btn facebook">Continue with Facebook</button>
-
-      <p style="margin-top:14px; font-size:0.9rem">By signing in you agree to our <a href="rules.html">rules</a>.</p>
-
-      <p><a href="index.html" class="link">Back to Home</a></p>
     </div>
-  </main>
 
-  <!-- Firebase compat SDKs (same family used in index.html) -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <div id="navLinks" class="hidden lg:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="./../index.html" class="block px-3 py-2 text-gray-700">Home</a>
+            <a href="about.html" class="block px-3 py-2 text-gray-700">About</a>
+            <a href="login.html" class="block px-3 py-2 text-orange-600 font-bold">Login</a>
+        </div>
+    </div>
+</nav>
 
-  <!-- Your project's firebase config (must expose window.auth and window.db) -->
-  <script src="firebase-config.js"></script>
-  <!-- Auth logic for the login page -->
-  <script src="auth.js"></script>
+<main class="flex items-center justify-center min-h-[70vh]">
+    <div class="auth-container">
+        <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-gray-800">Welcome Back</h3>
+            <p class="text-gray-500">Sign in to your spiritual journey</p>
+        </div>
+
+        <form id="loginForm" onsubmit="return false;">
+            <label class="text-sm font-semibold text-gray-700">Email Address</label>
+            <input id="email" class="auth-field" type="email" placeholder="name@example.com" required>
+
+            <label class="text-sm font-semibold text-gray-700">Password</label>
+            <input id="password" class="auth-field" type="password" placeholder="••••••••" required>
+
+            <button type="submit" id="sign-in" class="primary-btn mb-4">Sign In</button>
+        </form>
+
+        <div class="relative my-6">
+            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
+            <div class="relative flex justify-center text-sm"><span class="px-2 bg-white text-gray-500">Or continue with</span></div>
+        </div>
+
+        <button id="google-signin" class="social-btn google mb-3">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18"> Google
+        </button>
+        
+        <p class="text-center text-sm text-gray-600 mt-6">
+            New here? <a href="#" id="sign-up" class="text-green-600 font-bold hover:underline">Create an account</a>
+        </p>
+    </div>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+<script src="./../firebase-config.js"></script>
+<script src="./../app.js"></script>
+
+<script>
+   // 1. Mobile Menu Logic
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('hidden');
+});
+
+// 2. Firebase Login Logic (Using your window.auth)
+const loginBtn = document.getElementById('sign-in');
+if (loginBtn) {
+    loginBtn.addEventListener('click', async () => {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            // Using window.auth as defined in your firebase-config.js
+            const userCredential = await window.auth.signInWithEmailAndPassword(email, password);
+            console.log("Logged in:", userCredential.user);
+            window.location.href = "./../index.html"; // Redirect on success
+        } catch (error) {
+            console.error("Login Error:", error.code, error.message);
+            alert("Login Failed: " + error.message);
+        }
+    });
+}
+
+// 3. Google Login Logic
+const googleBtn = document.getElementById('google-signin');
+if (googleBtn) {
+    googleBtn.addEventListener('click', async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        try {
+            await window.auth.signInWithPopup(provider);
+            window.location.href = "./../index.html";
+        } catch (error) {
+            alert(error.message);
+        }
+    });
+}
+</script>
+
 </body>
 </html>
