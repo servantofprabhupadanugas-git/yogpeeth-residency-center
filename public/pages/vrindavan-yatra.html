@@ -6,7 +6,7 @@
     <title>Vrindavan Camp Details - Yogpeeth Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./../style.css">
-    <link rel="stylesheet" href="vrindavan.css">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -45,20 +45,57 @@
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-
+<script src="https://cdn.tailwindcss.com"></script>
 <nav class="bg-green-600 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
             <div class="flex-shrink-0 flex items-center">
                 <span class="logo-handwriting text-3xl text-white">Yogpeeth Center</span>
             </div>
+
             <div class="flex items-center lg:hidden">
-                <button id="menuToggle" class="text-white text-2xl"><i class="fas fa-bars"></i></button>
+                <button id="menuToggle" class="text-white hover:text-orange-200 focus:outline-none text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+
             <div class="hidden lg:flex items-center space-x-4">
-                <a href="./../index.html" class="text-white px-3 py-2">Home</a>
+                <a href="./../index.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Home</a>
+                <a href="about.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">About</a>
+                <a href="projects.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Projects</a>
+                <a href="activity.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Activity</a>
+                <a href="daily-darshans.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Daily Darshan</a>
+                <a href="yatras.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Yatras</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center text-white hover:text-orange-200 px-3 py-2 font-medium">
+                        More <span class="ml-1">▾</span>
+                    </button>
+                    <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg border rounded-md py-2 w-56 z-50">
+                        <a href="participate.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">How Can I Participate?</a>
+                        <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Gallery</a>
+                        <a href="jobs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Job Openings</a>
+                        <a href="rules.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Rules</a>
+                        <a href="visit-yogpeeth.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">Visit Us</a>
+                    </div>
+                </div>
+
+                <a href="#contact" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Contact Us</a>
                 <a href="login.html"><button class="bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition">Login</button></a>
             </div>
+        </div>
+    </div>
+
+    <div id="navLinks" class="hidden lg:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="./../index.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Home</a>
+            <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100 font-bold">About</a>
+            <a href="activity.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Activity</a>
+            <a href="daily-darshans.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Daily Darshan</a>
+            <a href="yatras.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Yatras</a>
+            <a href="visit-yogpeeth.html" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Visit Us</a>
+            <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-orange-100">Contact Us</a>
+            <a href="login.html" class="block px-3 py-2 text-orange-600 font-bold">Login</a>
         </div>
     </div>
 </nav>
@@ -154,8 +191,62 @@
     </div>
 </main>
 
-<footer class="bg-zinc-900 text-white py-12 mt-10">
+
+        <footer id="contact" class="bg-zinc-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <span class="logo-handwriting text-3xl text-orange-400">Yogpeeth Center</span>
+                <p class="mt-4 text-gray-400">Dedicated to sharing the light of spiritual knowledge and Vedic culture.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Contact Details</h4>
+                <p class="text-gray-400 mb-2">✉️ contact@baceyogpeeth.org</p>
+                <p class="text-gray-400 mb-2">📱 +91 (781)-888-7175</p>
+                <a href="https://maps.google.com/?q=Yogpeeth Center, BACE" target="_blank"><p class="text-gray-400">📍 Yogpeeth Center, BACE</p></a>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Follow Us</h4>
+                <div class="flex space-x-6 text-2xl">
+                    <a href="https://facebook.com/baceyogpeeth" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/baceyogpeeth" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/baceyogpeeth" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-youtube"></i></a>
+                    <a href="https://linkedin.com/company/baceyogpeeth" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-zinc-800 text-gray-500 text-sm">
+            &copy; 2026 Yogpeeth Center. All rights reserved.
+        </div>
     </footer>
 
+    <script>
+        // Simple 3D parallax effect on the Hero image
+        document.addEventListener('mousemove', (e) => {
+            const img = document.querySelector('img[alt="Meditation Pose"]');
+            const x = (window.innerWidth / 2 - e.pageX) / 30;
+            const y = (window.innerHeight / 2 - e.pageY) / 30;
+            img.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+    </script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('hidden');
+        });
+        document.addEventListener('click', function(event) {
+            const isClickInsideNavbar = event.target.closest('nav');
+            if (!isClickInsideNavbar && !navLinks.classList.contains('hidden')) {
+                navLinks.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="./../firebase-config.js"></script>
+    <script src="./../app.js"></script>
 </body>
 </html>
