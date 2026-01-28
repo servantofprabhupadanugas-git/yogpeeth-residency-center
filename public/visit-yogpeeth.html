@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Us - Yogpeeth Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .logo-handwriting { font-family: 'Dancing+Script', cursive; }
+        
+        /* 3D Map Card Effect */
+        .map-card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        .map-card-3d:hover {
+            transform: rotateX(5deg) rotateY(-5deg);
+        }
+        .map-inner {
+            transform: translateZ(30px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-['Inter']">
+
+    <nav class="bg-green-600 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="logo-handwriting text-3xl text-white">Yogpeeth Center</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="index.html" class="text-white hover:text-orange-200 font-medium">Home</a>
+                    <a href="yatras.html" class="text-white hover:text-orange-200 font-medium">Yatras</a>
+                    <a href="participate.html" class="text-white hover:text-orange-200 font-medium">Participate</a>
+                    <a href="visit-yogpeeth.html" class="text-white border-b-2 border-white font-medium">Visit Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+                <h1 class="text-5xl font-bold text-green-800 logo-handwriting">Locate the Center</h1>
+                <p class="text-xl text-gray-600 italic">"Step into a space of peace and Vedic learning."</p>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-l-8 border-orange-500">
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">Our Sanctuary Address:</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        J-63, Gali Number 38, Vipin Garden Extension,<br>
+                        Rajapuri, Uttam Nagar, New Delhi,<br>
+                        Delhi 110059, India
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Yogpeeth+Center+New+Delhi" 
+                       target="_blank"
+                       class="inline-block bg-orange-600 text-white text-center py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-orange-700 transition-all transform hover:scale-105">
+                        <i class="fas fa-directions mr-2"></i> Open in Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <div class="map-card-3d bg-white p-4 rounded-[2rem] shadow-2xl overflow-hidden cursor-pointer" 
+                     onclick="window.open('https://www.google.com/maps/search/?api=1&query=Yogpeeth+Center+New+Delhi', '_blank')">
+                    
+                    <div class="map-inner bg-gray-200 rounded-2xl h-[400px] overflow-hidden relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.956636735398!2d77.0225522754904!3d28.623916275669145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d05e1cf3adead%3A0x753be3f640912a2b!2sYogpeeth%20Center!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                        
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all flex items-center justify-center">
+                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm text-green-700 shadow-md">Click to Navigate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-orange-500/20 rounded-full blur-2xl"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-zinc-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="logo-handwriting text-3xl text-orange-400">Yogpeeth Center</span>
+            <div class="mt-6 flex justify-center gap-8 text-gray-400">
+                <p><i class="fas fa-phone mr-2 text-green-500"></i> +91-XXXXXXXXXX</p>
+                <p><i class="fas fa-envelope mr-2 text-green-500"></i> contact@baceyogpeeth.org</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
