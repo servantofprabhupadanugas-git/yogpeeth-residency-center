@@ -4,34 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yogpeeth Residential Center</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome CDN for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .logo-handwriting { font-family: 'Dancing Script', cursive; }
+
+/* Hero Styling - exactly same as before but for the button */
+.hero { position: relative; height: 100vh; overflow: hidden; }
+.hero-carousel { position: absolute; inset: 0; }
+.hero-image { 
+    position: absolute; inset: 0; width: 100%; height: 100%; 
+    object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; 
+}
+.hero-image.fade-in { opacity: 1; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 5; }
+
+/* Visit Button centered in Hero */
+.hero-content-center {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); z-index: 10;
+}
+.hero-visit-btn {
+    background: transparent; border: 2px solid #fff; color: #fff;
+    padding: 15px 40px; font-size: 1.5rem; font-weight: bold;
+    border-radius: 50px; cursor: pointer; transition: all 0.3s ease;
+    text-transform: uppercase; letter-spacing: 2px;
+}
+.hero-visit-btn:hover { background: #ea580c; border-color: #ea580c; transform: scale(1.1); }
+
+/* Service Cards 3D Effect */
+.service-card-3d { transition: transform 0.4s ease; border-bottom: 4px solid #16a34a; }
+.service-card-3d:hover { transform: translateY(-10px); border-bottom-color: #ea580c; }
+.read-more-btn { 
+    background: #166534; color: #fff; padding: 8px 20px; 
+    border-radius: 5px; transition: 0.3s; font-size: 0.9rem; 
+}
+.read-more-btn:hover { background: #ea580c; }
+    </style>
 </head>
 <body>
 
-
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <nav class="bg-green shadow-md ">
+    <nav class="bg-green-600 shadow-md ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
-                
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="h-12 w-auto" src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo">
+                    <span class="logo-handwriting text-3xl text-white">Yogpeeth Center</span>
                 </div>
 
                 <div class="hidden lg:flex items-center space-x-4">
-                    <a href="#home" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Home</a>
-                    <a href="about.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">About</a>
-                    <a href="projects.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Projects</a>
-                    <a href="activity.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Activity</a>
-                    <a href="live-darshan.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Live Darshan</a>
-                    <a href="yatras.html" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Yatras</a>
+                    <a href="#home" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Home</a>
+                    <a href="about.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">About</a>
+                    <a href="projects.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Projects</a>
+                    <a href="activity.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Activity</a>
+                    <a href="live-darshan.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Live Darshan</a>
+                    <a href="yatras.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Yatras</a>
                     
                     <div class="relative group">
-                        <button class="flex items-center text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">
+                        <button class="flex items-center text-white hover:text-orange-200 px-3 py-2 font-medium">
                             More <span class="ml-1">▾</span>
                         </button>
                         <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg border rounded-md py-2 w-56 z-50">
@@ -43,12 +75,12 @@
                         </div>
                     </div>
 
-                    <a href="#contact" class="text-gray-700 hover:text-orange-600 px-3 py-2 font-medium">Contact Us</a>
+                    <a href="#contact" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Contact Us</a>
                     <button class="bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition">Login</button>
                 </div>
 
                 <div class="lg:hidden flex items-center">
-                    <button id="menuToggle" class="text-gray-700 focus:outline-none text-2xl">☰</button>
+                    <button id="menuToggle" class="text-white focus:outline-none text-2xl">☰</button>
                 </div>
             </div>
         </div>
@@ -70,362 +102,106 @@
         </div>
     </nav>
 
-   
-
     <main id="home">
-        <!-- Hero: Cycling Radha-Madhava images with animated logo and darkening overlay -->
         <section class="hero" id="hero">
-            <!-- Image carousel: cycles through Radha-Madhava images with fade effect every 5 seconds -->
             <div class="hero-carousel">
-                <img class="hero-image fade-in" data-index="0" src="assets/images/radha_madhava_prabhupada_appearance_day_pixel_enhanced.jpg" alt="Radha Madhava - Prabhupada Appearance Day">
-                <img class="hero-image" data-index="1" src="assets/images/radha_madhava_radhashtami.jpg" alt="Radha Madhava - Radhashtami">
-                <img class="hero-image" data-index="2" src="assets/images/radha_madhava_nityanand_trayodashi.jpg" alt="Radha Madhava - Nityanand Trayodashi">
-                <img class="hero-image" data-index="3" src="assets/images/radha_madhava_gaur_purnima.png" alt="Radha Madhava - Gaur Purnima">
-                <img class="hero-image" data-index="4" src="assets/images/ptradhamadhava.jpg" alt="Radha Madhava">
+                <img class="hero-image fade-in" data-index="0" src="assets/images/radha_madhava_prabhupada_appearance_day_pixel_enhanced.jpg" alt="Radha Madhava 1">
+                <img class="hero-image" data-index="1" src="assets/images/radha_madhava_radhashtami.jpg" alt="Radha Madhava 2">
+                <img class="hero-image" data-index="2" src="assets/images/radha_madhava_nityanand_trayodashi.jpg" alt="Radha Madhava 3">
+                <img class="hero-image" data-index="3" src="assets/images/radha_madhava_gaur_purnima.png" alt="Radha Madhava 4">
+                <img class="hero-image" data-index="4" src="assets/images/ptradhamadhava.jpg" alt="Radha Madhava 5">
             </div>
             <div class="hero-overlay" aria-hidden="true"></div>
-            <!-- Large transparent logo centered over image -->
-            <img class="hero-logo" src="assets/images/yrc_logo_new.png" alt="Yogpeeth logo">
-        </section>
-
-        <section id="services" class="section-padding">
-            <h2>Our Services</h2>
-            <p class="services-intro">Experience spiritual growth and wellness at Yogpeeth Residential Center</p>
             
-            <!-- 3D Carousel Container -->
-            <div class="carousel-3d-container">
-                <div class="carousel-3d" id="carousel3d">
-                    <div class="carousel-3d-item" style="--index: 0">
-                        <div class="service-card-3d">
-                            <div class="service-icon">🧘</div>
-                            <h3>Yoga & Meditation Classes</h3>
-                            <p>Daily guided sessions for physical fitness, mental clarity, and spiritual balance. Learn authentic yoga practices from experienced teachers.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-3d-item" style="--index: 1">
-                        <div class="service-card-3d">
-                            <div class="service-icon">🎵</div>
-                            <h3>Bhakti & Kirtan Programs</h3>
-                            <p>Devotional chanting and singing to connect with the divine. Experience the transformative power of sacred music and devotion.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-3d-item" style="--index: 2">
-                        <div class="service-card-3d">
-                            <div class="service-icon">🌿</div>
-                            <h3>Ayurveda & Wellness</h3>
-                            <p>Personalized Ayurvedic treatments and consultations for holistic health. Balance your body, mind, and spirit naturally.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-3d-item" style="--index: 3">
-                        <div class="service-card-3d">
-                            <div class="service-icon">💭</div>
-                            <h3>Spiritual Counseling</h3>
-                            <p>Guidance on spiritual development and Krishna consciousness. Find answers to life's deeper questions with our experienced mentors.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-3d-item" style="--index: 4">
-                        <div class="service-card-3d">
-                            <div class="service-icon">🍲</div>
-                            <h3>Delicious Prasadam</h3>
-                            <p>Nutritious, sattvic vegetarian cuisine blessed and offered to the divine. Nourish your body with pure, peaceful food.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-3d-item" style="--index: 5">
-                        <div class="service-card-3d">
-                            <div class="service-icon">📚</div>
-                            <h3>Vedic Studies</h3>
-                            <p>In-depth learning of Vedic scriptures and ancient wisdom. Explore the timeless knowledge of the Vedas and Bhagavad Gita.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carousel Navigation Dots -->
-            <div class="carousel-dots">
-                <button class="dot active" data-slide="0"></button>
-                <button class="dot" data-slide="1"></button>
-                <button class="dot" data-slide="2"></button>
-                <button class="dot" data-slide="3"></button>
-                <button class="dot" data-slide="4"></button>
-                <button class="dot" data-slide="5"></button>
+            <div class="hero-content-center">
+                <button class="hero-visit-btn">Visit Yogpeeth</button>
             </div>
         </section>
 
-        <section id="rules-snippet" class="section-padding rules-bg">
-            <h2>Residential Rules</h2>
-            <p>A harmonious stay requires adherence to our core principles.</p>
-            
-            <!-- Key Rules Display -->
-            <div class="rules-highlight">
-                <div class="rule-item">
-                    <span class="rule-number">1</span>
-                    <div class="rule-content">
-                        <h4>Attend Morning Program</h4>
-                        <p>Be present for morning spiritual programs in time as scheduled.</p>
-                    </div>
+        <section id="motto" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-10 logo-handwriting">Our Divine Vision</h2>
+                <div class="space-y-8 text-xl text-gray-600 leading-relaxed italic">
+                    <p>"To systematically propagate spiritual knowledge to society and to educate all people in the techniques of spiritual life in order to achieve real unity and peace."</p>
+                    <p>"To promote a consciousness of the absolute truth as revealed in the timeless Vedic scriptures, fostering a closer bond of brotherhood among all beings."</p>
+                    <p>"To provide a sanctuary for spiritual retreat and residential learning, where individuals can cultivate a life of simplicity and high thinking."</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="rule-item">
-                    <span class="rule-number">5</span>
-                    <div class="rule-content">
-                        <h4>Follow Four Regulative Principles</h4>
-                        <p>No meat eating, no intoxication, no illicit sex, and no gambling. Avoid outside eatables and entertainment.</p>
+        <section id="services" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Spiritual Offerings</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="service-card-3d bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center">
+                        <div class="text-5xl mb-6">🧘</div>
+                        <h3 class="text-xl font-bold mb-4">Yoga and Meditation Classes</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Daily sessions for physical fitness and mental clarity.</p>
+                        <a href="yoga.html" class="read-more-btn">Read More</a>
                     </div>
-                </div>
-
-                <div class="rule-item">
-                    <span class="rule-number">7</span>
-                    <div class="rule-content">
-                        <h4>Live in Harmony</h4>
-                        <p>Respect all residents, maintain a peaceful atmosphere with love and trust.</p>
+                    <div class="service-card-3d bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center">
+                        <div class="text-5xl mb-6">💭</div>
+                        <h3 class="text-xl font-bold mb-4">Spiritual Counselling</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Guidance on development and life's deeper questions.</p>
+                        <a href="counsel.html" class="read-more-btn">Read More</a>
                     </div>
-                </div>
-
-                <div class="rule-item">
-                    <span class="rule-number">8</span>
-                    <div class="rule-content">
-                        <h4>Enthusiastic Participation</h4>
-                        <p>Actively participate in all Yogpeeth activities and services with voluntary discipline.</p>
+                    <div class="service-card-3d bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center">
+                        <div class="text-5xl mb-6">📚</div>
+                        <h3 class="text-xl font-bold mb-4">Vedic Studies</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Learning Vedic scriptures and ancient wisdom.</p>
+                        <a href="studies.html" class="read-more-btn">Read More</a>
                     </div>
-                </div>
-
-                <div class="rule-item">
-                    <span class="rule-number">9</span>
-                    <div class="rule-content">
-                        <h4>Fill Sadhana Card</h4>
-                        <p>Maintain regular spiritual practice and report progress to your facilitator.</p>
-                    </div>
-                </div>
-
-                <div class="rule-item">
-                    <span class="rule-number">17</span>
-                    <div class="rule-content">
-                        <h4>Dress Code</h4>
-                        <p>Wear dhoti-kurta in Yogpeeth for internal programs and elegant attire outside.</p>
+                    <div class="service-card-3d bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center">
+                        <div class="text-5xl mb-6">🏠</div>
+                        <h3 class="text-xl font-bold mb-4">Yogpeeth Residential Center</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Dedicated ashram facilities for spiritual growth.</p>
+                        <a href="residential.html" class="read-more-btn">Read More</a>
                     </div>
                 </div>
             </div>
-
-            <a href="rules.html" class="cta-button">View All Rules</a>
         </section>
+
+        <footer id="contact" class="bg-zinc-900 text-white py-12">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <span class="logo-handwriting text-3xl text-orange-400">Yogpeeth Center</span>
+                    <p class="mt-4 text-gray-400">Spreading the light of Vedic wisdom.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400">✉️ contact@baceyogpeeth.org</p>
+                    <p class="text-gray-400">📱 +91 98765 43210</p>
+                </div>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="hover:text-orange-500"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-orange-500"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
     </main>
-    
-    <footer id="contact" class="footer-bg">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Contact Information</h3>
-                <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
-                    <div class="contact-detail">
-                        <p class="contact-label">Email</p>
-                        <p><a href="mailto:contact@baceyogpeeth.org">contact@baceyogpeeth.org</a></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <div class="contact-detail">
-                        <p class="contact-label">Phone</p>
-                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <div class="contact-detail">
-                        <p class="contact-label">Location</p>
-                        <p>Yogpeeth Residential Center, BACE</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links-grid">
-                    <a href="https://linkedin.com/company/baceyogpeeth" target="_blank" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://instagram.com/baceyogpeeth" target="_blank" class="social-link" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://youtube.com/baceyogpeeth" target="_blank" class="social-link" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://facebook.com/baceyogpeeth" target="_blank" class="social-link" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </div>
-            </div>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', (e) => { e.stopPropagation(); navLinks.classList.toggle('hidden'); });
+        
+        // Carousel logic restored
+        document.addEventListener('DOMContentLoaded', function () {
+            const hero = document.getElementById('hero');
+            const images = document.querySelectorAll('.hero-image');
+            let currentIndex = 0;
+            setTimeout(() => { hero.classList.add('show-overlay'); }, 500);
+            function nextImage() {
+                images[currentIndex].classList.remove('fade-in');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('fade-in');
+            }
+            setInterval(nextImage, 5000);
+        });
+    </script>
 
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="rules.html">Rules</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Yogpeeth Residential Center. All rights reserved.</p>
-        </div>
-    </footer>
-
-        <script>
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
-
-            // 1. Toggle mobile menu on hamburger click
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevents the "click outside" listener from firing immediately
-                navLinks.classList.toggle('hidden');
-            });
-
-            // 2. Close menu when any mobile link is clicked
-            // We target all 'a' tags inside the mobile menu container
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.add('hidden');
-                });
-            });
-
-            // 3. Close menu when clicking anywhere outside the navbar
-            document.addEventListener('click', function(event) {
-                const isClickInsideNavbar = event.target.closest('nav');
-                
-                // If the click is outside the nav and the menu is currently open (not hidden)
-                if (!isClickInsideNavbar && !navLinks.classList.contains('hidden')) {
-                    navLinks.classList.add('hidden');
-                }
-            });
-            // Image carousel: cycle through Radha-Madhava images with fade effect every 5 seconds
-            document.addEventListener('DOMContentLoaded', function () {
-                const hero = document.getElementById('hero');
-                const images = document.querySelectorAll('.hero-image');
-                let currentIndex = 0;
-                const interval = 5000; // 5 seconds
-
-                // Show overlay and logo after initial load
-                setTimeout(() => {
-                    hero.classList.add('show-overlay');
-                }, 500);
-
-                // Cycle through images
-                function nextImage() {
-                    // Remove fade-in from current image
-                    images[currentIndex].classList.remove('fade-in');
-                    
-                    // Move to next image
-                    currentIndex = (currentIndex + 1) % images.length;
-                    
-                    // Add fade-in to next image
-                    images[currentIndex].classList.add('fade-in');
-                }
-
-                // Start cycling after initial delay
-                setInterval(nextImage, interval);
-            });
-
-            // 3D Carousel: Auto-rotate services every 3 seconds (Desktop)
-            // Horizontal scroll carousel on mobile
-            document.addEventListener('DOMContentLoaded', function () {
-                const carousel = document.getElementById('carousel3d');
-                const items = document.querySelectorAll('.carousel-3d-item');
-                const dots = document.querySelectorAll('.dot');
-                let currentIndex = 0;
-                const totalItems = items.length;
-                const rotationAngle = 360 / totalItems;
-                let autoRotateInterval;
-                
-                // Check if mobile
-                const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-                function updateCarousel(index) {
-                    if (isMobile) {
-                        // Mobile: scroll to item horizontally
-                        items.forEach((item, i) => {
-                            item.classList.remove('active', 'prev', 'next');
-                        });
-                        items[index].classList.add('active');
-                        
-                        // Scroll to item (optional smooth scroll)
-                        const itemWidth = items[index].offsetWidth + 16; // 16px is gap
-                        carousel.scrollLeft = index * itemWidth;
-                    } else {
-                        // Desktop: 3D rotation
-                        items.forEach(item => {
-                            item.classList.remove('active', 'prev', 'next');
-                        });
-                        items[index].classList.add('active');
-                        items[(index - 1 + totalItems) % totalItems].classList.add('prev');
-                        items[(index + 1) % totalItems].classList.add('next');
-                        carousel.style.transform = `rotateY(${-index * rotationAngle}deg)`;
-                    }
-
-                    // Update dot indicators
-                    dots.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === index);
-                    });
-                }
-
-                function nextSlide() {
-                    currentIndex = (currentIndex + 1) % totalItems;
-                    updateCarousel(currentIndex);
-                }
-
-                function prevSlide() {
-                    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                    updateCarousel(currentIndex);
-                }
-
-                // Auto-rotate every 3 seconds (Desktop only)
-                function startAutoRotate() {
-                    if (!isMobile) {
-                        autoRotateInterval = setInterval(nextSlide, 3000);
-                    }
-                }
-
-                function stopAutoRotate() {
-                    clearInterval(autoRotateInterval);
-                }
-
-                // Dot navigation
-                dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        currentIndex = index;
-                        updateCarousel(currentIndex);
-                        stopAutoRotate();
-                        startAutoRotate();
-                    });
-                });
-
-                // Pause on hover, resume on leave (Desktop only)
-                if (!isMobile) {
-                    carousel.addEventListener('mouseenter', stopAutoRotate);
-                    carousel.addEventListener('mouseleave', startAutoRotate);
-                }
-
-                // Initialize
-                updateCarousel(0);
-                startAutoRotate();
-                
-                // Handle window resize
-                window.addEventListener('resize', () => {
-                    const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
-                    if (newIsMobile !== isMobile) {
-                        location.reload(); // Reload to switch between modes
-                    }
-                });
-            });
-        </script>
-        </script>
-
-        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script src="firebase-config.js"></script>
