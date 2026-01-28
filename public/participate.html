@@ -3,23 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Participate - Yogpeeth Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <main class="max-w-3xl mx-auto px-4 py-12">
-        <h1 class="text-4xl font-bold mb-6">How Can I Participate?</h1>
-        <form class="space-y-4 bg-white p-8 shadow rounded">
-            <input type="text" placeholder="Full Name" class="w-full p-3 border rounded">
-            <select class="w-full p-3 border rounded">
-                <option>Volunteer</option>
-                <option>Donation</option>
-                <option>Sponsorship</option>
-            </select>
-            <textarea placeholder="Message" class="w-full p-3 border rounded h-32"></textarea>
-            <button class="w-full bg-orange-600 text-white py-3 rounded font-bold">Submit Interest</button>
-        </form>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-green-600 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="logo-handwriting text-3xl text-white">Yogpeeth Center</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="index.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Home</a>
+                    <a href="about.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">About</a>
+                    <a href="projects.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Projects</a>
+                    <a href="activity.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Activity</a>
+                    <a href="participate.html" class="text-white hover:text-orange-200 px-3 py-2 font-medium border-b-2 border-white">Participate</a>
+                    <a href="#contact" class="text-white hover:text-orange-200 px-3 py-2 font-medium">Contact Us</a>
+                    <button class="bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition">Login</button>
+                </div>
+                <div class="lg:hidden flex items-center">
+                    <button id="menuToggle" class="text-white text-2xl">☰</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-bold logo-handwriting text-green-800 mb-4">How Can I Participate?</h1>
+                <p class="text-gray-600">Join our mission to spread Vedic wisdom and serve society.</p>
+            </div>
+
+            <form id="participationForm" class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-b-8 border-green-600 transition-all hover:translate-y-[-5px]">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Full Name</label>
+                        <input type="text" name="name" placeholder="Enter your name" class="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none transition-all" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Phone Number</label>
+                        <input type="tel" name="phone" placeholder="Enter your mobile number" class="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none transition-all" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Service Inclination</label>
+                        <select name="service" class="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-600 outline-none bg-white cursor-pointer" required>
+                            <option value="" disabled selected>Select a way to serve</option>
+                            <optgroup label="Core Activities">
+                                <option value="Youth Engagement">Youth Engagement (Scriptural Guidance)</option>
+                                <option value="Family Engagement">Family Engagement</option>
+                                <option value="Village Engagement">Village Engagement</option>
+                                <option value="De-addiction Programs">De-addicting Youths</option>
+                            </optgroup>
+                            <optgroup label="Special Projects">
+                                <option value="DYS Sessions">DYS Sessions Coordination</option>
+                                <option value="1 Day Camps">1 Day Camp Volunteer</option>
+                                <option value="Residential Support">Residential Center Service</option>
+                            </optgroup>
+                            <optgroup label="Financial Support">
+                                <option value="Donation">General Donation</option>
+                                <option value="Sponsorship">Event Sponsorship</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Brief Message (Optional)</label>
+                        <textarea name="message" placeholder="Any specific skills or thoughts?" class="w-full p-4 border border-gray-200 rounded-xl h-32 focus:ring-2 focus:ring-green-600 outline-none transition-all"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg transform active:scale-95 transition-all">
+                        Submit Interest
+                    </button>
+                </div>
+            </form>
+        </div>
     </main>
+
+    <footer id="contact" class="bg-zinc-900 text-white py-16 mt-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <span class="logo-handwriting text-3xl text-orange-400">Yogpeeth Center</span>
+                <p class="mt-4 text-gray-400">Building a divine community together.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Contact</h4>
+                <p class="text-gray-400">✉️ contact@baceyogpeeth.org</p>
+                <p class="text-gray-400">📍 Yogpeeth Center, BACE</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Social</h4>
+                <div class="flex space-x-6 text-2xl text-gray-400">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('participationForm');
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // See instructions below
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    alert("Hare Krishna! Data sent to Excel successfully.");
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Submit Interest";
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Error connecting to sheet. Please check script URL.");
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Submit Interest";
+                });
+        });
+    </script>
 </body>
 </html>
-

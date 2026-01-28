@@ -8,6 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .logo-handwriting {
+    font-family: 'Dancing Script', cursive;
+}
+
+.rules-3d-card {
+    transition: all 0.5s ease-out;
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+.rules-3d-card:hover {
+    transform: perspective(1000px) rotateX(2deg) translateY(-8px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Checkmark/Cross styling */
+li p strong {
+    color: #166534; /* Green for headings inside list */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 640px) {
+    .rules-3d-card {
+        padding: 1.5rem;
+    }
+}
+    </style>
 </head>
 <body class="bg-gray-50">
 
